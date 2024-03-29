@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  - var Employee = [ { empid: 12, empname: 'Viplav', empdept: 'web'},{empid: 13, empname: 'Billa', empdept: 'webapps'},{empid: 14, empname: 'uday', empdept: 'coding'}]
+  
+  div(class="container-fluid")
+    div(class="row")
+      each item, index in Employee
+        div(class="col-sm-2", onclick=`buy(${index})`) #{item.empid}, #{item.empname}, #{item.empdept}
+      script.
+        function buy (index) 
+        {
+          alert(`you purchased item: ${index + 1}`)
+        }
+
