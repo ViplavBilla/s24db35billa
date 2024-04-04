@@ -19,3 +19,15 @@ res.send('NOT IMPLEMENTED: Employee delete DELETE ' + req.params.id);
 exports.employee_update_put = function(req, res) {
 res.send('NOT IMPLEMENTED: Employee update PUT' + req.params.id);
 };
+
+//List of all Costumes
+exports.employee_list = async function(req, res) {
+try{
+theEmployees = await employee.find();
+res.send(theEmployees);
+}
+catch(err){
+res.status(500);
+res.send(`{"error": ${err}}`);
+}
+};
