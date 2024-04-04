@@ -2,7 +2,7 @@ var express = require('express');
 const employee_controlers= require('../controllers/Employee');
 var router = express.Router();
 
-/* GET costumes */
+/* GET employee */
 router.get('/', employee_controlers.employee_view_all_Page );
 
 /* GET home page. */

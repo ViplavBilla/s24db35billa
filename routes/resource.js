@@ -1,20 +1,20 @@
 var express = require('express');
 var router = express.Router();
-// Require controller modules.
+// Require employee modules.
 var api_controller = require('../controllers/api');
 var employee_controller = require('../controllers/Employee');
 /// API ROUTE ///
 // GET resources base.
 router.get('/', api_controller.api);
-/// COSTUME ROUTES ///
-// POST request for creating a Costume.
+/// employee ROUTES ///
+// POST request for creating a employee.
 router.post('/employees', employee_controller.employee_create_post);
-// DELETE request to delete Costume.
+// DELETE request to delete employee.
 router.delete('/employees/:id', employee_controller.employee_delete);
-// PUT request to update Costume.
+// PUT request to update employee.
 router.put('/employees/:id', employee_controller.employee_update_put);
-// GET request for one Costume.
+// GET request for one employee.
 router.get('/employees/:id', employee_controller.employee_detail);
-// GET request for list of all Costume items.
+// GET request for list of all employee items.
 router.get('/employees', employee_controller.employee_list);
 module.exports = router;
