@@ -2,8 +2,9 @@ extends layout
 
 block content
   h1= title
-  - var Employee = [ { empid: 12, empname: 'Viplav', empdept: 'web'},{empid: 13, empname: 'Billa', empdept: 'webapps'},{empid: 14, empname: 'uday', empdept: 'coding'}]
-  
+  //- - let employee = results
+  - var results = [ { empid: 1, empname: 'vip', empdept: 'testing'},{empid: 2, empname: 'viplav', empdept: 'testing'},{empid: 3, empname: 'billa', empdept: 'developer'}]
+  - let Employee = results
   div(class="container-fluid")
     div(class="row")
       each item, index in Employee
