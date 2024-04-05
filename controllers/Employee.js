@@ -80,6 +80,27 @@ res.send(`{"error": document for id ${req.params.id} not found`);
 }
 };
 
+
+// Handle Costume update form on PUT.
+exports.employee_update_put = async function(req, res) {
+console.log(`update on id ${req.params.id} with body
+${JSON.stringify(req.body)}`)
+try {
+let toUpdate = await employee.findById( req.params.id)
+// Do updates of properties
+if(req.body.empid)
+toUpdate.empid = req.body.empid;
+if(req.body.empname) toUpdate.empname = req.body.empname;
+if(req.body.empdept) toUpdate.empdept = req.body.empdept;
+let result = await toUpdate.save();
+console.log("Sucess " + result)
+res.send(result)
+} catch (err) {
+res.status(500)
+res.send(`{"error": ${err}: Update for id ${req.params.id}
+failed`);
+}
+};
     
     
 
