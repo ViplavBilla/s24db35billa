@@ -38,7 +38,7 @@ app.use('/resource',resourceRouter);
 const connectionString = 'mongodb+srv://viplavbilla543:viplavbilla@cluster0.kacbdu5.mongodb.net/';
 mongoose = require('mongoose');
 mongoose.connect(connectionString);
-mongoose.set('strictQuery', false);
+
 
 //Get the default connection
 var db = mongoose.connection;
