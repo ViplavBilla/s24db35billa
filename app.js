@@ -34,8 +34,8 @@ app.use('/pick',pickRouter);
 app.use('/resource',resourceRouter);
 
 
-require('dotenv').config();
-const connectionString = process.env.MONGO_CON
+
+const connectionString = 'mongodb+srv://viplavbilla543:viplavbilla@cluster0.kacbdu5.mongodb.net/';
 mongoose = require('mongoose');
 mongoose.connect(connectionString);
 mongoose.set('strictQuery', false);
