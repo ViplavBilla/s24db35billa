@@ -115,6 +115,34 @@ res.send(`{"error": Error deleting ${err}}`);
 }
 };
 
+// Handle a show one view with id specified by query
+exports.employee_view_one_Page = async function(req, res) {
+    console.log("single view for id " + req.query.id)
+    try{
+    result = await employee.findById( req.query.id)
+    res.render('employeedetail',
+    { title: 'Employee Detail', toShow: result });
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+    };
+
+// Handle building the view for creating a employee.
+// No body, no in path parameter, no query.
+// Does not need to be async
+exports.employee_create_Page = function(req, res) {
+    console.log("create view")
+    try{
+    res.render('employeecreate', { title: 'Employee Create'});
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+    };
+
     
     
 

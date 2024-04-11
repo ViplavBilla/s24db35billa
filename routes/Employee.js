@@ -9,6 +9,11 @@ router.get('/', employee_controlers.employee_view_all_Page );
 // router.get('/', function(req, res, next) {
 // //   res.render('employee', { title: 'Search Results Employee' });
 // // });
+/* GET detail employee page */
+router.get('/detail', employee_controlers.employee_view_one_Page);
+
+/* GET create employee page */
+router.get('/create', employee_controlers.employee_create_Page);
 
 module.exports = router;
 
