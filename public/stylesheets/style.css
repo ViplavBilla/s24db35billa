@@ -10,4 +10,10 @@ a {
   background-color: aquamarine;
   width: 120px;
   }
+.empAttr{
+  background-color: aqua;
+  width: 200px;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
   
