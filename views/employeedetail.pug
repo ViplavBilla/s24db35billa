@@ -1,20 +1,28 @@
 extends layout
+ 
 block content
- h1= title
- - let employeeid = toShow._id
- - let empid = toShow.empid
- - let empname = toShow.empname
- - let empdept = toShow.empdept
- div
-  div.row
-   div(class='empAttr mr-3') Employee UNIQUE ID is:
-   div #{employeeid}
-  div.row
-   div(class='empAttr mr-3') Employee ID is:
-   div #{empid}
-  div.row
-   div(class='empAttr mr-3') Employee name is:
-   div #{empname}
-  div.row
-   div(class='empAttr mr-3') Employee department is:
-   div #{empdept}
+  h1= title
+  if (toShow == null)
+    h2 No instance to detail
+  else
+    - let employeeid = toShow._id
+    - let empid = toShow.empid
+    - let empname = toShow.empname
+    - let empdept = toShow.empdept
+ 
+    div
+      div.row
+        div(class='empAttr mr-3') Employee UNIQUE ID is:
+        div #{employeeid}
+ 
+      div.row
+        div(class='empAttr mr-3') Employee ID is:
+        div #{empid}
+ 
+      div.row
+        div(class='empAttr mr-3') Employee Name is:
+        div #{empname}
+ 
+      div.row
+        div(class='empAttr mr-3') Employee department is:
+        div #{empdept}
