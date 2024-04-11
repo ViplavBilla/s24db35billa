@@ -1,0 +1,49 @@
+extends layout
+ 
+block content
+  h1= title
+  if (toShow == null)
+    h2 No instance to update
+  else
+    - let employeeid = toShow._id
+    - let empid = toShow.empid
+    - let empname = toShow.empname
+    - let empdept = toShow.empdept
+ 
+    div.row(class='mb-2')
+      div.mr-1 ID is
+      div #{employeeid}
+ 
+    - let actionid = "/resource/employees/" + employeeid
+    form(id='EmployeeForm', action= actionid, method="PUT")
+      div.form-group
+        label.employeeAttr(for='empid') Employee ID
+        input#empid(type='number', name='empid', value= empid)
+ 
+      div.form-group
+        label.employeeAttr(for='empname') Employee name
+        input#empname(type='text', name='empname', value= empname)
+ 
+      div.form-group
+        label.employeeAttr(for='empdept') Employee Department
+        input#empdept(type='text', name='empdept', value= empdept)
+ 
+      input(type="submit")
+ 
+    script.
+      document.forms['EmployeeForm'].addEventListener('submit', (event) => {
+        event.preventDefault();
+        // TODO do something here to show the user that the form is being submitted
+        fetch(event.target.action, {
+          method: 'PUT',
+          body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+        }).then((resp) => {
+          return resp.json(); // or resp.text() or whatever the server sends
+        }).then((body) => {
+          alert("Update succeeded");
+          // TODO handle the response body
+        }).catch((error) => {
+          // TODO handle error
+          alert("Update failed: " + error);
+        });
+      });

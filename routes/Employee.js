@@ -15,6 +15,10 @@ router.get('/detail', employee_controlers.employee_view_one_Page);
 /* GET create employee page */
 router.get('/create', employee_controlers.employee_create_Page);
 
+/* GET create update page */
+router.get('/update', employee_controlers.employee_update_Page);
+
+
 module.exports = router;
 
 

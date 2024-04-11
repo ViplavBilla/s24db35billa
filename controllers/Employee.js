@@ -143,6 +143,20 @@ exports.employee_create_Page = function(req, res) {
     }
     };
 
+// Handle building the view for updating a employee.
+// query provides the id
+exports.employee_update_Page = async function(req, res) {
+    console.log("update view for item "+req.query.id)
+    try{
+    let result = await employee.findById(req.query.id)
+    res.render('employeeupdate', { title: 'Employee Update', toShow: result });
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+    };
+
     
     
 
