@@ -18,6 +18,9 @@ router.get('/create', employee_controlers.employee_create_Page);
 /* GET create update page */
 router.get('/update', employee_controlers.employee_update_Page);
 
+/* GET delete costume page */
+router.get('/delete', employee_controlers.employee_delete_Page);
+
 
 module.exports = router;
 
