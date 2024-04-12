@@ -3,15 +3,16 @@ extends layout
 block content
   h1= title
   //- - let employee = results
-  - var results = [ { empid: 1, empname: 'vip', empdept: 'testing'},{empid: 2, empname: 'viplav', empdept: 'testing'},{empid: 3, empname: 'billa', empdept: 'developer'}]
-  - let Employee = results
+  //- var results = [ { empid: 1, empname: 'vip', empdept: 'testing'},{empid: 2, empname: 'viplav', empdept: 'testing'},{empid: 3, empname: 'billa', empdept: 'developer'}]
+  - let Employee = results;
   div(class="container-fluid")
-    div(class="row")
-      each item, index in Employee
-        div(class="col-sm-2", onclick=`buy(${index})`) #{item.empid}, #{item.empname}, #{item.empdept}
-      script.
-        function buy (index) 
-        {
-          alert(`you purchased item: ${index + 1}`)
-        }
+    div(class="row m-1")
+      each item in Employee
+        - let destination = `dispatch(\"/Employee/update?id=${item._id}\")`
+        div(class="col-sm-2") #{item.empid}, #{item.empname}, #{item.empdept}
+         button.btn( class="btn-primary ml-1", onclick= destination) Update
+  script.
+   function dispatch(path){
+    window.location.href=path
+   }
 
