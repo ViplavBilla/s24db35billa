@@ -1,16 +1,11 @@
 extends layout
-
 block content
-  h1= title
-  p Welcome to MyWebPage
-  button(type="button", onclick="double()" , class="btn btn-dark") i am a button
-  div(id="double") Up the amount
-  script. 
-      let value = 0;
-      let power = 1;
-      function double() {
-          value = value + 1;
-          power = power * 2;
-          document.getElementById("double").innerHTML = "Two to the power" + value + " is " + power;
-      }
-  a(href="/Employee") Employee details
+ if (!user)
+  a(href="/login") Login
+  br
+  a(href="/register") Register
+ if (user)
+  p You are currently logged in as #{user.username}
+  a(href="/employee") Take me to employees
+  br
+  a(href="/logout") Logout

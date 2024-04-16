@@ -18,6 +18,15 @@ var resourceRouter = require('./routes/resource');
 
 
 var app = express();
+
+app.use(require('express-session')({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false
+  }));
+  app.use(passport.initialize());
+  app.use(passport.session());
+
 var employee = require("./models/Employee");
 
 
@@ -58,14 +67,6 @@ app.use('/Employee',EmployeeRouter);
 app.use('/grid',gridRouter);
 app.use('/pick',pickRouter);
 app.use('/resource',resourceRouter);
-
-app.use(require('express-session')({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: false
-  }));
-  app.use(passport.initialize());
-  app.use(passport.session());
 
 
 
