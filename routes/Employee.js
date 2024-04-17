@@ -13,7 +13,9 @@ router.get('/', employee_controlers.employee_view_all_Page );
 router.get('/detail', employee_controlers.employee_view_one_Page);
 
 /* GET create employee page */
-router.get('/create', employee_controlers.employee_create_Page);
+router.get('/create',secured, employee_controlers.employee_create_Page);
+
+router.get('/delete',secured, employee_controlers.employee_delete_Page);
 
 // A little function to check if we have an authorized user and continue on
 // redirect to login.
@@ -30,7 +32,6 @@ router.get('/update',secured, employee_controlers.employee_update_Page);
 
 
 /* GET delete page */
-router.get('/delete', employee_controlers.employee_delete_Page);
 
 
 module.exports = router;
