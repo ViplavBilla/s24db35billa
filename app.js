@@ -7,6 +7,8 @@ var logger = require('morgan');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
+
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var EmployeeRouter = require('./routes/Employee');
@@ -18,6 +20,7 @@ var resourceRouter = require('./routes/resource');
 
 
 var app = express();
+var employee = require("./models/Employee");
 
 app.use(require('express-session')({
   secret: 'keyboard cat',
@@ -26,8 +29,6 @@ app.use(require('express-session')({
   }));
   app.use(passport.initialize());
   app.use(passport.session());
-
-var employee = require("./models/Employee");
 
 
 passport.use(new LocalStrategy(
@@ -67,6 +68,8 @@ app.use('/Employee',EmployeeRouter);
 app.use('/grid',gridRouter);
 app.use('/pick',pickRouter);
 app.use('/resource',resourceRouter);
+
+
 
 
 

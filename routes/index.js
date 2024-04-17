@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page.*/ 
+/* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
@@ -49,7 +49,7 @@ message: 'Registration error', account : req.body.username })
 
 
 router.get('/login', function(req, res) {
-  res.render('login', { title: 'Employee App Login', user : req.user });
+  res.render('login', { title: 'employee App Login', user : req.user });
   });
   router.post('/login', passport.authenticate('local'), function(req, res) {
   res.redirect('/');
