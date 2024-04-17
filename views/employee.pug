@@ -5,12 +5,16 @@ block content
   //- - let employee = results
   //- var results = [ { empid: 1, empname: 'vip', empdept: 'testing'},{empid: 2, empname: 'viplav', empdept: 'testing'},{empid: 3, empname: 'billa', empdept: 'developer'}]
   - let Employee = results;
+  a(class="btn btn-secondary" href=`/employee/create`) Create
   div(class="container-fluid")
     div(class="row m-1")
       each item in Employee
         - let destination = `dispatch(\"/Employee/update?id=${item._id}\")`
         div(class="col-sm-2") #{item.empid}, #{item.empname}, #{item.empdept}
          button.btn( class="btn-primary ml-1", onclick= destination) Update
+         a(class="btn btn-secondary" href=`/employee/detail?id=${item._id}`) Details
+         a(class="btn btn-secondary" href=`/employee/delete?id=${item._id}`) Delete
+
   script.
    function dispatch(path){
     window.location.href=path
